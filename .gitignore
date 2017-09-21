@@ -1,6 +1,5 @@
 .DS_store
 .tags*
-.env
 .npmignore
 node_modules
 package-lock.json
