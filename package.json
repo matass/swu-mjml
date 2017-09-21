@@ -1,6 +1,6 @@
 {
   "name": "swu_mjml",
-  "version": "1.0.11",
+  "version": "1.0.25",
   "description": "",
   "author": "Matas Simonaitis",
   "license": "ISC",
@@ -21,7 +21,7 @@
     "email"
   ],
   "scripts": {
-    "starts": "coffee --output src --compile lib"
+    "prepublish": "coffee --output lib --compile src"
   },
   "dependencies": {
     "ejs": "^2.5.7",

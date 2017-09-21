@@ -1,6 +1,7 @@
 config = []
-config = 
-  default:
+
+config =
+  'default':
     test_tmp_1:
       id: ''
       version: ''

@@ -11,8 +11,8 @@ Swu_mjml = (CONFIG, settings) ->
   return
 
 Swu_mjml::_init = (CONFIG, settings) ->
-  Sendwithus = require('../src/api/sendwithus')(CONFIG.swu_api_key)
-  RGenerator = require('../src/rgenerator')(CONFIG, settings)
+  Sendwithus = require('../lib/api/sendwithus')(CONFIG.swu_api_key)
+  RGenerator = require('../lib/rgenerator')(CONFIG, settings)
 
   app.use('/' + CONFIG.path, RGenerator)
   app.set('view engine', 'ejs')
