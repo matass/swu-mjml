@@ -1,0 +1,9 @@
+.DS_store
+.tags*
+.env
+.npmignore
+index.js
+node_modules
+package-lock.json
+templates
+src

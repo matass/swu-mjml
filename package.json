@@ -1,0 +1,23 @@
+{
+  "name": "swu_mjml",
+  "version": "1.1.4",
+  "description": "",
+  "author": "Matas Simonaitis",
+  "license": "ISC",
+  "scripts": {
+    "starts": "coffee --output src --compile lib"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "gulp": "^3.9.1",
+    "gulp-mjml": "^2.0.0",
+    "merge-stream": "^1.0.0",
+    "mjml": "^3.3.3",
+    "path": "^0.12.7",
+    "restler": "^3.4.0"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.12.7"
+  }
+}
