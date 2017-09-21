@@ -1,9 +1,25 @@
 {
   "name": "swu_mjml",
-  "version": "1.1.4",
+  "version": "1.0.11",
   "description": "",
   "author": "Matas Simonaitis",
   "license": "ISC",
+  "homepage": "https://github.com/matass/swu_mjml",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matass/swu_mjml"
+  },
+  "bugs": {
+    "url": "https://github.com/matass/swu_mjml/issues"
+  },
+  "keywords": [
+    "sendwithus",
+    "swu",
+    "mjml",
+    "responsive",
+    "transactional",
+    "email"
+  ],
   "scripts": {
     "starts": "coffee --output src --compile lib"
   },
