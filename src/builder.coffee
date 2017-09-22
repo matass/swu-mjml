@@ -3,7 +3,6 @@ Builder = ->
 
 Builder::build_html_data = (CONFIG, settings) ->
   for shop, template of settings.templates
-    path: CONFIG.path
     name: shop
     data:
       for tmp, data of template

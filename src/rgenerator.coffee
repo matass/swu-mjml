@@ -6,28 +6,16 @@ path     = require 'path'
 Builder  = require path.resolve __dirname, 'builder'
 
 RGenerator = (CONFIG, settings) ->
-  @_generate_html_path CONFIG, settings
-  @routes CONFIG, settings
-  return
+  @index CONFIG, settings
+  @generate_html_path CONFIG, settings
+  console.info ''
 
-RGenerator::_build_paths = (CONFIG, shop, template) ->
-  router.get ('/' + shop + '/' + template), (req, res) ->
-    res.sendFile Builder.get_html_path CONFIG, shop, template
-    return
-
-RGenerator::_generate_html_path = (CONFIG, settings) ->
-  for shop, template of settings.templates
-    for template_name of template
-      @_build_paths CONFIG, shop, template_name
-
-RGenerator::routes = (CONFIG, settings) ->
+RGenerator::index = (CONFIG, settings) ->
   router.get '/', (req, res) ->
     data = Builder.build_html_data CONFIG, settings
     res.render process.cwd() + '/' + CONFIG.views_path,
       shops: data,
-      api_path: CONFIG.api_path
       port: CONFIG.port
-    return
 
   router.post '/' + CONFIG.api_path, (req, res) ->
     body = req.body
@@ -39,9 +27,18 @@ RGenerator::routes = (CONFIG, settings) ->
 
       template_body = Builder.build_template_body(body, data)
       Sendwithus.update_template template_body
-      return
-    return
+
+RGenerator::generate_html_path = (CONFIG, settings) ->
+  for shop, template of settings.templates
+    for template_name of template
+      @_build_paths CONFIG, shop, template_name
+
+RGenerator::_build_paths = (CONFIG, shop, template) ->
+  console.info '\x1b[36m%s', '➲ Generating paths:' + '\x1b[32m','GET /' + shop + '/' + template
+
+  router.get ('/' + shop + '/' + template), (req, res) ->
+    res.sendFile Builder.get_html_path CONFIG, shop, template
 
 module.exports = (config, settings) ->
   new RGenerator(config, settings)
-  new RGenerator::routes(config)
+  module.exports = router
