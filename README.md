@@ -46,7 +46,6 @@ config =
   path: 'templates'
   mjml_src: 'mjml'
   views_path: 'views/index'
-  api_path: 'api'
   port: 3001
 
 require('swu_mjml')(config, settings)
