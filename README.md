@@ -1,4 +1,5 @@
 # swu_mjml
+Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform
 
 ![](https://image.ibb.co/fq0syk/Screen_Shot_2017_09_21_at_4_41_01_PM.png)
 
@@ -93,7 +94,7 @@ require('swu_mjml')(config, settings)
           <% shop.data.forEach(function(template) { %>
             <tr>
               <td>
-                <a href="/<%= shop.path %>/<%= shop.name %>/<%= template.name %>"> <%= template.name %> </a>
+                <a href="<%= shop.path %>/<%= shop.name %>/<%= template.name %>"> <%= template.name %> </a>
               </td>
               <td>
                 <button class="update mdl-button mdl-js-button" onclick="return confirm('Are you sure?')"
