@@ -19,6 +19,9 @@ This Package uses <b>Sendwithus</b> API to update templates
 # Installation:
 `npm install swu_mjml`
 
+# Testing:
+`npm test`
+
 # Usage
 
 This package works automagically.

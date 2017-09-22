@@ -17,7 +17,7 @@ RGenerator::index = (CONFIG, settings) ->
       shops: data,
       port: CONFIG.port
 
-  router.post '/' + CONFIG.api_path, (req, res) ->
+  router.post '/', (req, res) ->
     body = req.body
 
     html_template = Builder.get_html_path CONFIG, body.shop, body.template_name
@@ -34,7 +34,7 @@ RGenerator::generate_html_path = (CONFIG, settings) ->
       @_build_paths CONFIG, shop, template_name
 
 RGenerator::_build_paths = (CONFIG, shop, template) ->
-  console.info '\x1b[36m%s', '➲ Generating paths:' + '\x1b[32m','GET /' + shop + '/' + template
+  #console.info '\x1b[36m%s', '➲ Generating paths:' + '\x1b[32m','GET /' + shop + '/' + template
 
   router.get ('/' + shop + '/' + template), (req, res) ->
     res.sendFile Builder.get_html_path CONFIG, shop, template

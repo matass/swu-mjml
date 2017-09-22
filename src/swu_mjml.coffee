@@ -9,7 +9,7 @@ Swu_mjml = (CONFIG, settings) ->
   @gulp_tasks CONFIG, settings
 
 Swu_mjml::_init = (CONFIG, settings) ->
-  console.info '➲ Initializing SWU_MJML \r\n'
+  #console.info '➲ Initializing SWU_MJML \r\n'
 
   Sendwithus = require('../lib/api/sendwithus')(CONFIG.swu_api_key)
   RGenerator = require('../lib/rgenerator')(CONFIG, settings)
