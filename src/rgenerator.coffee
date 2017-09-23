@@ -12,7 +12,7 @@ RGenerator = (CONFIG, settings) ->
 
 RGenerator::index = (CONFIG, settings) ->
   router.get '/', (req, res) ->
-    data = Builder.build_html_data CONFIG, settings
+    data = Builder.build_html_data settings
     res.render process.cwd() + '/' + CONFIG.views_path,
       shops: data,
       port: CONFIG.port

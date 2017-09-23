@@ -1,14 +1,22 @@
-settings = require './settings'
 expect   = require('chai').expect
+assert   = require('chai').assert
+settings = 
+  templates:
+    version_1: template_1:
+      id: 'tem_xxx'
+      version: 'ver_xxx'
 
-config =
-  swu_api_key: ''
-  path: 'templates'
-  mjml_src: 'mjml'
-  views_path: 'views/index'
-  port: 3001
+    version_2: template_1:
+      id: 'tem_xxx'
+      version: 'ver_xxx'
 
-describe 'Swu_mjml',  ->
-  it 'should be an Object', () ->
-    Swu_mjml = require(process.cwd() + '/lib/swu_mjml')(config, settings)
-    expect(Swu_mjml).to.be.an('object')
+    version_3: template_3:
+      id: 'tem_xxx'
+      version: 'ver_xxx'
+
+Builder = require(process.cwd() + '/lib/builder')
+
+describe 'Builder',  ->
+  it 'should build array of 3 objects', () ->
+    html_data = Builder.build_html_data(settings)
+    assert.equal html_data.length, 3
