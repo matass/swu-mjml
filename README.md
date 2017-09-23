@@ -1,6 +1,9 @@
 # swu_mjml
 Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform
 
+<a href='https://coveralls.io/github/matass/swu_mjml?branch=master'><img src='https://coveralls.io/repos/github/matass/swu_mjml/badge.svg?branch=master' alt='Coverage Status' /></a>
+[![Build Status](https://travis-ci.org/matass/swu_mjml.svg?branch=master)](https://travis-ci.org/freeCodeCamp/how-to-contribute-to-open-source)
+
 ![](https://image.ibb.co/fq0syk/Screen_Shot_2017_09_21_at_4_41_01_PM.png)
 
 #### MJML
