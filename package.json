@@ -1,6 +1,6 @@
 {
   "name": "swu_mjml",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform",
   "author": "Matas Simonaitis",
   "license": "ISC",
