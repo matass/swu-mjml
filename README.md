@@ -15,9 +15,6 @@ This Package uses <b>Sendwithus</b> API to update templates
 > <b>Sendwithus</b> helps marketers ensure their transactional and triggered emails are awesome, with template management, testing, and analytics
 [Read more about <b>Sendwithus</b>](sendwithus.com)
 
-# Dependencies:
-`ejs` `express` `gulp` `gulp-mjml` `merge-stream` `mjml` `path` `restler`
-
 # Installation:
 `npm install swu_mjml`
 
