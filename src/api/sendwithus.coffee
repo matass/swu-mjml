@@ -3,28 +3,27 @@ restler = require('restler')
 Sendwithus = (@API_KEY = api_key) ->
   return
 
-Sendwithus::_callback = ->
-  if err
-    console.log err.statusCode, response
-  else
-    response
-  return
-
-Sendwithus::_buildUrl = (resource) ->
+Sendwithus::build_url = (resource) ->
   url = 'https://api.sendwithus.com/api/v1/' + resource
 
-Sendwithus::_headers = ->
+Sendwithus::headers = ->
   headers = []
   headers:
     'X-SWU-API-KEY': @API_KEY
 
-Sendwithus::update_template = (data, @_callback) ->
-  url = @_buildUrl('templates/' + data.id + '/versions/' + data.version)
+Sendwithus::update_template = (data) ->
+  url = @build_url('templates/' + data.id + '/versions/' + data.version)
 
-  restler.putJson(url, data, @_headers()).once 'complete', (result, response) ->
+  restler.putJson(url, data, @headers()).once 'complete', (result, response) ->
     console.log result
     return
   return
 
-module.exports = (api_key) ->
-  new Sendwithus(api_key)
+Sendwithus::get_templates = () ->
+  url = @build_url('templates')
+  restler.get(url, @headers()).once 'complete', (result, response) ->
+    console.log result
+    return
+  return
+
+module.exports = (api_key) -> new Sendwithus(api_key)

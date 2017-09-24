@@ -3,7 +3,7 @@ var mjml_templates = {
     racoon1: { id: 'tem_xxx', version: 'ver_xxx' },
     racoon2: { id: 'tem_xxx', version: 'ver_xxx' }
   },
-  examples2: {
+  example2: {
     racoon1: { id: 'tem_xxx', version: 'ver_xxx' }
   }
 }
