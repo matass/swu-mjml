@@ -5,13 +5,12 @@ express    = require 'express'
 app        = express()
 
 Swu_mjml = (CONFIG, settings) ->
-  @_init CONFIG, settings
+  @init CONFIG, settings
   @gulp_tasks CONFIG, settings
 
-Swu_mjml::_init = (CONFIG, settings) ->
-  #console.info '➲ Initializing SWU_MJML \r\n'
+Swu_mjml::init = (CONFIG, settings) ->
+  console.info '➲ Initializing SWU_MJML \r\n'
 
-  Sendwithus = require('../lib/api/sendwithus')(CONFIG.swu_api_key)
   RGenerator = require('../lib/rgenerator')(CONFIG, settings)
 
   app.use('/', RGenerator)
@@ -22,17 +21,25 @@ Swu_mjml::gulp_tasks = (CONFIG, settings) ->
   shops  = []
   bundle = []
 
-  for shop of settings.templates
+  for shop of settings
     shops.push shop
+
+  console.info '\x1b[36m%s', '➲ Directories:' +  '\x1b[35m', shops
+  console.info ''
+
+  shops.forEach (shop) ->
+    path = CONFIG.mjml_src + '/' + shop + '/*.mjml'
+    console.info '\x1b[36m%s', '➲ ' + 'watching path:' + '\x1b[35m', path
+
+    gulp.watch path, [ 'collectAll', 'mjml' ]
+
+  console.info ''
 
   gulp.task 'collectAll', ->
     shops.forEach (shop, index) ->
       bundle[index] = gulp.src(CONFIG.mjml_src + '/' + shop + '/*.mjml')
         .pipe(mjml())
         .pipe(gulp.dest(CONFIG.path + '/' + shop))
-
-  shops.forEach (shop) ->
-    gulp.watch CONFIG.mjml_src + '/' + shop + '/*.mjml', [ 'collectAll', 'mjml' ]
 
   gulp.start 'collectAll'
 

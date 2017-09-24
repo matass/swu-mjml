@@ -1,14 +1,15 @@
-Builder = ->
-  return
+Builder = -> return
 
-Builder::build_html_data = (CONFIG, settings) ->
-  for shop, template of settings.templates
-    name: shop
-    data:
-      for tmp, data of template
-        name: tmp,
-        id: data.id,
-        version: data.version
+Builder::build_html_data = (settings) ->
+  data = 
+    for shop, template of settings
+      name: shop
+      data:
+        for tmp, data of template
+          name: tmp,
+          id: data.id,
+          version: data.version
+  return data
 
 Builder::build_template_body = (body, data) ->
   id: body.template_id,
