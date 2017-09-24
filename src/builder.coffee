@@ -1,9 +1,8 @@
-Builder = ->
-  return
+Builder = -> return
 
 Builder::build_html_data = (settings) ->
-  data =
-    for shop, template of settings.templates
+  data = 
+    for shop, template of settings
       name: shop
       data:
         for tmp, data of template
