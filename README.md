@@ -26,5 +26,6 @@ If you want to get all templates with their versions, you have to make a GET req
 `npm test`
 
 # Demo
-
-Configure `demo.js` file and run `node demo.js` 
+- Configure `demo.js` file
+- run `npm start`
+- run `node demo.js` 
