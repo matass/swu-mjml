@@ -15,6 +15,10 @@ This Package uses <b>Sendwithus</b> API to update templates
 > <b>Sendwithus</b> helps marketers ensure their transactional and triggered emails are awesome, with template management, testing, and analytics
 [Read more about <b>Sendwithus</b>](sendwithus.com)
 
+If you want to get all templates with their versions, you have to make a GET request to `api.sendwithus.com`.
+* Set `X-SWU-API-KEY` header key (you can find your API key in [Sendwithus api settings](https://app.sendwithus.com/#/api_settings))
+* Make `GET` request to `https://api.sendwithus.com/api/v1/templates` URL
+
 # Installation:
 `npm install swu_mjml`
 
@@ -22,4 +26,5 @@ This Package uses <b>Sendwithus</b> API to update templates
 `npm test`
 
 # Demo
+
 Configure `demo.js` file and run `node demo.js` 
