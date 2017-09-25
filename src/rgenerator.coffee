@@ -1,9 +1,10 @@
 fs         = require 'fs'
-express    = require('express')
+express    = require 'express'
 router     = express.Router()
-bodyParser = require('body-parser')
+bodyParser = require 'body-parser'
+path       = require 'path'
 
-Builder = require process.cwd() + '/lib/builder'
+Builder = require path.resolve __dirname, 'builder'
 
 RGenerator = (CONFIG, settings) ->
   @index CONFIG, settings
