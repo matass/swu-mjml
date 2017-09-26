@@ -15,6 +15,7 @@ Swu_mjml::init = (CONFIG, settings) ->
 
   app.use('/', RGenerator)
   app.set('view engine', 'ejs')
+  app.set('json spaces', 2)
   server = app.listen CONFIG.port
 
 Swu_mjml::gulp_tasks = (CONFIG, settings) ->
