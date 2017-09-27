@@ -1,16 +1,16 @@
 {
-  "name": "swu_mjml",
-  "version": "1.0.45",
+  "name": "swu-mjml",
+  "version": "1.0.0",
   "description": "Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform",
   "author": "Matas Simonaitis",
   "license": "ISC",
-  "homepage": "https://github.com/matass/swu_mjml",
+  "homepage": "https://github.com/matass/swu-mjml",
   "repository": {
     "type": "git",
-    "url": "https://github.com/matass/swu_mjml"
+    "url": "https://github.com/matass/swu-mjml"
   },
   "bugs": {
-    "url": "https://github.com/matass/swu_mjml/issues"
+    "url": "https://github.com/matass/swu-mjml/issues"
   },
   "keywords": [
     "sendwithus",
