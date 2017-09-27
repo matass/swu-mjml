@@ -19,10 +19,10 @@ Sendwithus::update_template = (data) ->
     return
   return
 
-Sendwithus::get_templates = () ->
+Sendwithus::get_templates = (callback) ->
   url = @build_url('templates')
   restler.get(url, @headers()).once 'complete', (result, response) ->
-    console.log result
+    callback null, result
     return
   return
 

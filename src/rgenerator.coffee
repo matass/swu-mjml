@@ -4,7 +4,7 @@ router     = express.Router()
 bodyParser = require 'body-parser'
 path       = require 'path'
 
-Builder = require path.resolve __dirname, 'builder'
+Builder    = require path.resolve __dirname, 'builder'
 
 RGenerator = (CONFIG, settings) ->
   @index CONFIG, settings
@@ -31,6 +31,13 @@ RGenerator::index = (CONFIG, settings) ->
 
       template_body = Builder.build_template_body(body, data)
       Sendwithus.update_template template_body
+
+  router.get '/swu-templates', (req, res) ->
+    process_swu_templates (err, result) ->
+      if err then console.log err else res.json result
+    return
+
+  process_swu_templates = (callback) -> Sendwithus.get_templates callback
 
 RGenerator::generate_html_path = (CONFIG, settings) ->
   for shop, template of settings
