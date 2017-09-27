@@ -1,7 +1,7 @@
-# swu_mjml
+# swu-mjml
 Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform
 
-[![Build Status](https://travis-ci.org/matass/swu_mjml.svg?branch=master)](https://travis-ci.org/matass/swu_mjml)
+[![Build Status](https://travis-ci.org/matass/swu-mjml.svg?branch=master)](https://travis-ci.org/matass/swu-mjml)
 
 ![](https://image.ibb.co/fq0syk/Screen_Shot_2017_09_21_at_4_41_01_PM.png)
 
@@ -19,13 +19,50 @@ If you want to get all templates with their versions, you have to make a GET req
 * Set `X-SWU-API-KEY` header key (you can find your API key in [Sendwithus api settings](https://app.sendwithus.com/#/api_settings))
 * Make `GET` request to `https://api.sendwithus.com/api/v1/templates` URL
 
-# Installation:
-`npm install swu_mjml`
+# Installation
 
-# Testing:
-`npm test`
+`npm install swu-mjml`
 
-# Demo
+Create configuration object
+```javascript
+var config = {
+  swu_api_key: 'test_xxx',
+  path: 'test/templates',
+  mjml_src: 'test/mjml',
+  views_path: 'test/views/index',
+  port: 3001
+};
+```
+
+Create mjml templates sittings object
+```javascript
+var mjml_templates = {
+  example1: {
+    racoon1: { id: 'tem_xxx', version: 'ver_xxx' },
+    racoon2: { id: 'tem_xxx', version: 'ver_xxx' }
+  },
+  example2: {
+    racoon1: { id: 'tem_xxx', version: 'ver_xxx' }
+  }
+}
+```
+
+Call swu-mjml package
+```javascript
+require('swu-mjml')(config, mjml_templates);
+```
+
+* You have correctly define `mjml_src` path in `config` object.
+* Make sure that templates settings matches `mjml_src` folder structure.
+
+# Running demo app
 - Configure `demo.js` file
-- run `npm start` to compile `lib` directory from source
-- run `node demo.js` 
+- Run `npm start` to compile `lib` directory from source
+- Run `node demo.js`
+
+##### By default
+- use `localhost:3001` to list all local templates
+- use`localhost:3001/swu-templates` to get response from sendwithus API about all templates and their versions`
+
+# Testing
+`npm test`
