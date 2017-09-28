@@ -34,7 +34,7 @@ var config = {
 };
 ```
 
-Create mjml templates sittings object
+Create mjml templates settings object
 ```javascript
 var mjml_templates = {
   example1: {
