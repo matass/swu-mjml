@@ -1,6 +1,5 @@
 gulp       = require 'gulp'
 mjml       = require 'gulp-mjml'
-merge      = require 'merge-stream'
 express    = require 'express'
 app        = express()
 
@@ -32,7 +31,7 @@ Swu_mjml::gulp_tasks = (CONFIG, settings) ->
     path = CONFIG.mjml_src + '/' + shop + '/*.mjml'
     console.info '\x1b[36m%s', '➲ ' + 'watching path:' + '\x1b[35m', path
 
-    gulp.watch path, [ 'collectAll', 'mjml' ]
+    gulp.watch path, [ 'collectAll' ]
 
   console.info ''
 
@@ -41,12 +40,9 @@ Swu_mjml::gulp_tasks = (CONFIG, settings) ->
       bundle[index] = gulp.src(CONFIG.mjml_src + '/' + shop + '/*.mjml')
         .pipe(mjml())
         .pipe(gulp.dest(CONFIG.path + '/' + shop))
+    console.info '\x1b[35m%s', '➲ MJML files were successfully compiled'
 
   gulp.start 'collectAll'
-
-  gulp.task 'mjml', ->
-    merge bundle
-    console.info '\x1b[35m%s', '➲ MJML files were successfully compiled'
 
 module.exports = (config, settings) ->
   new Swu_mjml(config, settings)
