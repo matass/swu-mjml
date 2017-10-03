@@ -1,6 +1,6 @@
 {
   "name": "swu-mjml",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform",
   "author": "Matas Simonaitis",
   "license": "ISC",
@@ -30,7 +30,6 @@
     "express": "^4.15.4",
     "gulp": "^3.9.1",
     "gulp-mjml": "^2.0.0",
-    "merge-stream": "^1.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
