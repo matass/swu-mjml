@@ -59,7 +59,6 @@ require('swu-mjml')(config, mjml_templates);
 # Running demo app
 - Run `npm start` to compile `lib` directory from source
 - Run `node demo.js`
-- Visit `localhost:3001`
 
 ##### By default
 - use `localhost:3001` to list all local templates
