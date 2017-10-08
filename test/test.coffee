@@ -5,9 +5,12 @@ chaiFiles = require 'chai-files'
 file      = chaiFiles.file
 chai.use chaiFiles
 
-settings =
-  example1:
-    racoon1:
+templates =
+  example1:              # folder name
+    racoon1:             # template name
+      id: 'tem_xxx'
+      version: 'ver_xxx'
+    racoon2:
       id: 'tem_xxx'
       version: 'ver_xxx'
   example2:
@@ -24,8 +27,8 @@ config = {
 }
 
 Builder       = require(process.cwd() + '/lib/builder')
-html_data     = Builder.build_html_data(settings)
-settings_size = Object.keys(settings).length
+html_data     = Builder.build_html_data(templates)
+settings_size = Object.keys(templates).length
 
 test_html_dir = (expectation) ->
   for index, shop of html_data
@@ -41,7 +44,7 @@ describe 'Before initializing swu-mjml', ->
       test_html_dir('empty')
 
 describe 'After initializing swu-mjml',  ->
-  require('../lib/swu_mjml')(config, settings)
+  require('../lib/swu_mjml')(config, templates)
 
   describe 'Builder',  ->
     it 'Should build array of ' + settings_size + ' objects', () ->
