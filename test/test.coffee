@@ -23,19 +23,30 @@ config = {
   port: 3001
 }
 
-require('../lib/swu_mjml')(config, settings)
-
-Builder = require(process.cwd() + '/lib/builder')
+Builder       = require(process.cwd() + '/lib/builder')
 html_data     = Builder.build_html_data(settings)
 settings_size = Object.keys(settings).length
 
-describe 'Builder',  ->
-  it 'Should build array of ' + settings_size + ' objects', () ->
-    assert.equal html_data.length, settings_size
+test_html_dir = (expectation) ->
+  for index, shop of html_data
+    for template in shop['data']
+      file_name = Builder.get_html_path config, shop['name'], template['name']
 
-describe 'Compilation',  ->
-  it 'Should compile all files from ' + config['mjml_src'] + ' directory', () ->
-    for index, shop of html_data
-      for template in shop['data']
-        file_name = Builder.get_html_path config, shop['name'], template['name']
-        expect(file(file_name)).to.exist
+      expect(file(file_name)).to.not.exist if expectation == 'empty'
+      expect(file(file_name)).to.exist if expectation == 'compiled'
+
+describe 'Before initializing swu-mjml', ->
+  describe config['path'], ->
+    it 'Should be empty', () ->
+      test_html_dir('empty')
+
+describe 'After initializing swu-mjml',  ->
+  require('../lib/swu_mjml')(config, settings)
+
+  describe 'Builder',  ->
+    it 'Should build array of ' + settings_size + ' objects', () ->
+      assert.equal html_data.length, settings_size
+
+  describe config['path'], ->
+    it 'Should be compiled', () ->
+      test_html_dir('compiled')
