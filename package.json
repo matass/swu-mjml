@@ -23,7 +23,7 @@
   "scripts": {
     "prepublish": "coffee --output lib --compile src",
     "start": "coffee --output lib --compile src",
-    "test": "make _test"
+    "test": "npm start | make _test"
   },
   "dependencies": {
     "ejs": "^2.5.7",
