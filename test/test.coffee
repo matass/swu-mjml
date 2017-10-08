@@ -1,29 +1,52 @@
-expect   = require('chai').expect
-assert   = require('chai').assert
+chai      = require 'chai'
+expect    = chai.expect
+assert    = chai.assert
+chaiFiles = require 'chai-files'
+file      = chaiFiles.file
+chai.use chaiFiles
 
-settings = 
-  version_1: test:
-    id: 'tem_xxx'
-    version: 'ver_xxx'
+settings =
+  example1:
+    racoon1:
+      id: 'tem_xxx'
+      version: 'ver_xxx'
+  example2:
+    racoon1:
+      id: 'tem_xxx'
+      version: 'ver_xxx'
 
-  version_2: mobile_apps:
-    id: 'tem_xxx'
-    version: 'ver_xxx'
-
-  version_3: mobile_apps:
-    id: 'tem_xxx'
-    version: 'ver_xxx'
-
-config =
-  swu_api_key: ''
-  path: 'templates'
-  mjml_src: 'mjml'
-  views_path: 'views/index'
+config = {
+  swu_api_key: 'test_xxx',
+  path: 'test/templates',
+  mjml_src: 'test/mjml',
+  views_path: 'test/views/index',
   port: 3001
+}
 
-Builder = require(process.cwd() + '/lib/builder')
+Builder       = require(process.cwd() + '/lib/builder')
+html_data     = Builder.build_html_data(settings)
+settings_size = Object.keys(settings).length
 
-describe 'Builder',  ->
-  it 'should build array of 3 objects', () ->
-    html_data = Builder.build_html_data(settings)
-    assert.equal html_data.length, 3
+test_html_dir = (expectation) ->
+  for index, shop of html_data
+    for template in shop['data']
+      file_name = Builder.get_html_path config, shop['name'], template['name']
+
+      expect(file(file_name)).to.not.exist if expectation == 'empty'
+      expect(file(file_name)).to.exist if expectation == 'compiled'
+
+describe 'Before initializing swu-mjml', ->
+  describe config['path'], ->
+    it 'Should be empty', () ->
+      test_html_dir('empty')
+
+describe 'After initializing swu-mjml',  ->
+  require('../lib/swu_mjml')(config, settings)
+
+  describe 'Builder',  ->
+    it 'Should build array of ' + settings_size + ' objects', () ->
+      assert.equal html_data.length, settings_size
+
+  describe config['path'], ->
+    it 'Should be compiled', () ->
+      test_html_dir('compiled')

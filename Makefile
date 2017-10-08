@@ -10,4 +10,5 @@ build:
 
 clean:
 	@rm -rf lib
+	@rm -rf test/templates
 	@mkdir lib
