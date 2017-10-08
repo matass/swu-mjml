@@ -1,9 +1,8 @@
 fs         = require 'fs'
 express    = require 'express'
 router     = express.Router()
-path       = require 'path'
 
-Builder    = require path.resolve __dirname, 'builder'
+Builder    = require './builder'
 
 RGenerator = (CONFIG, settings) ->
   @index CONFIG, settings
