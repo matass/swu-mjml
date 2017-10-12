@@ -9,6 +9,7 @@ build:
 		-o lib src
 
 clean:
+	@clear
 	@rm -rf lib
 	@rm -rf test/templates
 	@mkdir lib

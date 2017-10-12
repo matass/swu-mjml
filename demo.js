@@ -16,4 +16,5 @@ var config = {
   port: 3001
 };
 
-require('./lib/swu_mjml')(config, mjml_templates);
+swu_mjml = require('./lib/swu_mjml')(config, mjml_templates);
+swu_mjml.start()
