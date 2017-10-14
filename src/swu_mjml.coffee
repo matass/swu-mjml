@@ -6,7 +6,6 @@ app        = express()
 Swu_mjml = (config, settings) ->
   @config = config
   @settings = settings
-
   @folder = []
 
   for shop of @settings
