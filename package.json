@@ -26,6 +26,7 @@
     "test": "npm start | make _test"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "gulp": "^3.9.1",
