@@ -1,7 +1,7 @@
 # swu-mjml
 Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/matass/swu-mjml/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/matass/swu-mjml/?branch=master)
+[![Build Status](https://travis-ci.org/matass/swu-mjml.svg?branch=testing-builder)](https://travis-ci.org/matass/swu-mjml)
 [![Build Status](https://scrutinizer-ci.com/g/matass/swu-mjml/badges/build.png?b=master)](https://scrutinizer-ci.com/g/matass/swu-mjml/build-status/master)
 
 ![](https://image.ibb.co/fq0syk/Screen_Shot_2017_09_21_at_4_41_01_PM.png)
@@ -24,7 +24,9 @@ If you want to get all templates with their versions, you have to make a GET req
 
 `npm install swu-mjml`
 
-Create configuration object
+# API
+
+Create configuration and templates settings
 ```javascript
 var config = {
   swu_api_key: 'test_xxx',
@@ -33,10 +35,7 @@ var config = {
   views_path: 'test/views/index',
   port: 3001
 };
-```
 
-Create mjml templates settings object
-```javascript
 var mjml_templates = {
   example1: {
     racoon1: { id: 'tem_xxx', version: 'ver_xxx' },
