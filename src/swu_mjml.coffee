@@ -53,8 +53,6 @@ Swu_mjml::gulp_watch_paths = () ->
 
     gulp.watch path, [ 'collectAll' ]
 
-  console.info ''
-
 current_time = () ->
   date = new Date
   date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
