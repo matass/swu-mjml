@@ -1,7 +1,6 @@
 request    = require 'request'
 
-Sendwithus = (@API_KEY = api_key) ->
-  return
+Sendwithus = (@API_KEY = api_key) -> return
 
 Sendwithus::build_url = (resource) ->
   url = 'https://api.sendwithus.com/api/v1/' + resource
@@ -20,7 +19,7 @@ Sendwithus::get_templates = (callback) ->
   url = @build_url('templates')
 
   request.get { url, headers: @headers() }, (err, req, result) ->
-    callback null, JSON.parse r.result
+    callback null, JSON.parse result
     return
   return
 
