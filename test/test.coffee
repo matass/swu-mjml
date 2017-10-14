@@ -40,15 +40,14 @@ test_html_dir = (expectation) ->
       expect(file(file_name)).to.exist if expectation == 'compiled'
 
 describe 'Before initializing swu-mjml', ->
-  describe config['path'], ->
-    it 'Should be empty', () ->
-      test_html_dir('empty')
+  it config['path'] + 'Should be empty', () ->
+    test_html_dir 'empty'
 
+describe 'Initializing gulp_tasks', ->
+  it 'Should return no errors', () ->
 
-describe 'Gulp tasks', ->
-  Swu_mjml.gulp_tasks()
+Swu_mjml.gulp_compile(development: true)
 
-  describe config['path'], ->
-    it 'Should be compiled', ->
-      setTimeout (-> test_html_dir('compiled') ), 0
-
+describe config['path'], ->
+  it 'Should be compiled', ->
+    setTimeout (-> test_html_dir('compiled') ), 0
