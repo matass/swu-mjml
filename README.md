@@ -48,9 +48,10 @@ var mjml_templates = {
 }
 ```
 
-Call swu-mjml package
+Start swu-mjml
 ```javascript
-require('swu-mjml')(config, mjml_templates);
+var swu_mjml = require('swu-mjml')(config, mjml_templates);
+swu_mjml.start()
 ```
 
 * You have correctly define `mjml_src` path in `config` object.
