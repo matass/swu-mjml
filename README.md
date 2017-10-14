@@ -63,7 +63,7 @@ swu_mjml.start()
 
 ##### By default
 - use `localhost:3001` to list all local templates
-- use `localhost:3001/swu-templates` to get response from sendwithus API about all templates and their versions`
+- use `localhost:3001/swu-templates` to get response from sendwithus API about all templates and their versions
 
 # Testing
 `npm test`
