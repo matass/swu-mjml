@@ -1,6 +1,5 @@
 chai      = require 'chai'
 expect    = chai.expect
-assert    = chai.assert
 chaiFiles = require 'chai-files'
 file      = chaiFiles.file
 chai.use chaiFiles
@@ -26,8 +25,10 @@ config = {
   port: 3001
 }
 
-Builder       = require(process.cwd() + '/lib/builder')
-html_data     = Builder.build_html_data(templates)
+Swu_mjml = require(process.cwd() + '/lib/swu_mjml')(config, templates)
+Builder  = require(process.cwd() + '/lib/builder')
+
+html_data = Builder.build_html_data(templates)
 settings_size = Object.keys(templates).length
 
 test_html_dir = (expectation) ->
@@ -39,17 +40,14 @@ test_html_dir = (expectation) ->
       expect(file(file_name)).to.exist if expectation == 'compiled'
 
 describe 'Before initializing swu-mjml', ->
-  describe config['path'], ->
-    it 'Should be empty', () ->
-      test_html_dir('empty')
+  it config['path'] + 'Should be empty', ->
+    test_html_dir 'empty'
 
-describe 'After initializing swu-mjml',  ->
-  require('../lib/swu_mjml')(config, templates)
+describe 'Initializing gulp_tasks', ->
+  it 'Should return no errors', ->
 
-  describe 'Builder',  ->
-    it 'Should build array of ' + settings_size + ' objects', () ->
-      assert.equal html_data.length, settings_size
+Swu_mjml.gulp_compile(development: true)
 
-  describe config['path'], ->
-    it 'Should be compiled', () ->
-      test_html_dir('compiled')
+describe config['path'], ->
+  it 'Should be compiled', ->
+    setTimeout (-> test_html_dir('compiled') ), 0

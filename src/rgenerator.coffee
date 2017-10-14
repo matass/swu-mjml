@@ -1,5 +1,6 @@
-fs         = require 'fs'
+bodyParser = require 'body-parser'
 express    = require 'express'
+fs         = require 'fs'
 router     = express.Router()
 
 Builder    = require './builder'
@@ -12,6 +13,7 @@ RGenerator = (CONFIG, settings) ->
 RGenerator::index = (CONFIG, settings) ->
   Sendwithus = require('../lib/api/sendwithus')(CONFIG.swu_api_key)
 
+  router.use(bodyParser.json())
   router.get '/', (req, res) ->
     data = Builder.build_html_data settings
     res.render process.cwd() + '/' + CONFIG.views_path,
@@ -20,6 +22,7 @@ RGenerator::index = (CONFIG, settings) ->
 
   router.post '/', (req, res) ->
     body = req.body
+    console.log body
 
     html_body = Builder.get_html_path CONFIG, body.shop, body.template_name
 
