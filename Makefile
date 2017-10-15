@@ -1,12 +1,7 @@
-_test: clean build mocha
-
-mocha:
-	@mocha
+_test: clean build
 
 build:
-	@./node_modules/coffee-script/bin/coffee \
-		-c \
-		-o lib src
+	@gulp test
 
 clean:
 	@clear

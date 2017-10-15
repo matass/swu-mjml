@@ -35,7 +35,7 @@ Swu_mjml::gulp_compile = (params = null) ->
 
   gulp.task 'collectAll', ->
     folder.forEach (shop, index) ->
-      gulp.src(mjml_src + '/' + shop + '/*.mjml')
+      return gulp.src(mjml_src + '/' + shop + '/*.mjml')
         .pipe(mjml())
         .pipe(gulp.dest(dest_path + '/' + shop))
 
