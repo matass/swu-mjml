@@ -31,7 +31,7 @@
     "express": "^4.16.2",
     "gulp": "^3.9.1",
     "gulp-mjml": "^2.3.0",
-    "mjml-core": "^3.3.5"
+    "mjml-core": "^4.0.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
