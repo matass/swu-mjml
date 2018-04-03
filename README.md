@@ -1,9 +1,6 @@
 # swu-mjml
 Automagically compile MJML templates to responsive HTML and easily update new versions to Sendwithus platform
 
-[![Build Status](https://travis-ci.org/matass/swu-mjml.svg?branch=testing-builder)](https://travis-ci.org/matass/swu-mjml)
-[![Build Status](https://scrutinizer-ci.com/g/matass/swu-mjml/badges/build.png?b=master)](https://scrutinizer-ci.com/g/matass/swu-mjml/build-status/master)
-
 Slack: https://join.slack.com/t/swu-mjml/signup
 
 ![](https://image.ibb.co/fq0syk/Screen_Shot_2017_09_21_at_4_41_01_PM.png)
