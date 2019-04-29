@@ -2,7 +2,6 @@
 .tags*
 .npmignore
 node_modules
-package-lock.json
 lib
 test/templates
 demo.js
