@@ -30,7 +30,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "gulp": "^4.0.1",
-    "gulp-mjml": "^3.0.0",
+    "gulp-mjml": "^4.0.2",
     "mjml-core": "^4.4.0-beta.1"
   },
   "devDependencies": {
